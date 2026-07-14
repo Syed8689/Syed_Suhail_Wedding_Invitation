@@ -1,25 +1,90 @@
 {
-  "groomName": "SYED SUHAIL",
-  "brideName": "TASKEEN FATHIMA",
-  "groomParents": "Mr. Syed Khadeer Ahmed & Mrs. Shameem",
-  "brideParents": "Mr. Late Allabakash & Mrs. Fathima",
-  "nikah": {
-    "date": "2026-09-04",
-    "day": "Friday",
-    "time": "TBD",
-    "venue": "MASJID-E-KHADRIA",
-    "address": "Millers Rd, Benson Town, Bangalore 560046",
-    "maps": ""
+  "wedding": {
+    "groom": {
+      "name": "SYED SUHAIL",
+      "father": "Mr. Syed Khadeer Ahmed",
+      "mother": "Mrs. Shameem"
+    },
+
+    "bride": {
+      "name": "TASKEEN FATHIMA",
+      "father": "Late Mr. Allabakash",
+      "mother": "Mrs. Fathima"
+    },
+
+    "invitation": {
+      "greeting": "Assalamu Alaikum Wa Rahmatullahi Wa Barakatuh",
+      "bismillah": "بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ",
+      "verse": "And We Created You In Pairs",
+      "verseReference": "Quran 78:8",
+      "message": "We joyfully invite you to celebrate our Nikah and Reception with your presence and blessings.",
+      "loveMessage": "Two Souls. One Journey. A Lifetime Of Love & Faith.",
+      "blessingMessage": "Your Presence Will Be Our Greatest Blessing",
+      "footerTitle": "JazakAllahu Khair",
+      "footerMessage": "Thank You For Celebrating With Us"
+    },
+
+    "countdown": {
+      "targetDate": "2026-09-04T00:00:00"
+    },
+
+    "nikah": {
+      "title": "NIKAH",
+      "day": "Friday",
+      "date": "04 September 2026",
+      "venue": "MASJID-E-KHADRIA",
+      "addressLine1": "Millers Road",
+      "addressLine2": "Benson Town",
+      "city": "Bangalore",
+      "postalCode": "560046",
+      "googleMapsUrl": "https://maps.google.com"
+    },
+
+    "reception": {
+      "title": "RECEPTION",
+      "day": "Saturday",
+      "date": "05 September 2026",
+      "venue": "To Be Announced",
+      "description": "Reception details will be updated soon."
+    },
+
+    "contacts": {
+      "groomSide": {
+        "label": "Groom Side Contact",
+        "name": "Coming Soon",
+        "phone": ""
+      },
+
+      "brideSide": {
+        "label": "Bride Side Contact",
+        "name": "Coming Soon",
+        "phone": ""
+      }
+    },
+
+    "receptionDetails": {
+      "title": "Reception Details",
+      "description": "Coming Soon"
+    }
   },
-  "reception": {
-    "date": "",
-    "time": "",
-    "venue": "",
-    "address": "",
-    "maps": ""
+
+  "theme": {
+    "backgroundImage": "ArabicBG3.jpg",
+
+    "colors": {
+      "warmIvory": "#F4EEE3",
+      "antiqueCream": "#EAE1D1",
+      "antiqueGold": "#B08A45",
+      "darkGold": "#8D6A2F",
+      "text": "#2E2A26",
+      "white": "#FFFFFF"
+    }
   },
-  "contacts": {
-    "primary": "",
-    "secondary": ""
+
+  "website": {
+    "title": "Syed Suhail & Taskeen Fathima | Wedding Invitation",
+    "description": "Digital Wedding Invitation Website",
+    "version": "1.0.0",
+    "deployment": "GitHub Pages"
   }
 }
