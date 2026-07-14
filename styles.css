@@ -1,12 +1,10 @@
 :root{
-
     --ivory:#F4EEE3;
     --cream:#EAE1D1;
     --gold:#B08A45;
     --gold-dark:#8D6A2F;
-    --text:#2E2A26;
+    --charcoal:#2E2A26;
     --white:#ffffff;
-
 }
 
 *{
@@ -20,112 +18,75 @@ html{
 }
 
 body{
-
-    background:var(--ivory);
-
-    color:var(--text);
-
     font-family:'Poppins',sans-serif;
-
+    background:var(--ivory);
+    color:var(--charcoal);
     overflow-x:hidden;
-
 }
 
-/* ===========================
-   MUSIC BUTTON
-=========================== */
-
-.music-btn{
-
-    position:fixed;
-
-    right:20px;
-
-    bottom:20px;
-
-    z-index:9999;
-
-    width:60px;
-
-    height:60px;
-
-    border:none;
-
-    border-radius:50%;
-
-    background:var(--gold);
-
-    color:white;
-
-    font-size:22px;
-
-    cursor:pointer;
-
-    box-shadow:0 10px 30px rgba(0,0,0,.15);
-
-}
-
-/* ===========================
-   ENVELOPE SCREEN
-=========================== */
+/* ==========================
+ENVELOPE
+========================== */
 
 #envelope-screen{
 
     position:fixed;
-
     inset:0;
 
     display:flex;
-
     justify-content:center;
-
     align-items:center;
 
     background:
     linear-gradient(
-    rgba(244,238,227,.85),
-    rgba(244,238,227,.85)
+        rgba(0,0,0,.45),
+        rgba(0,0,0,.45)
     ),
-    url("assets/images/hero-arch.jpg");
+    url("ArabicBG3.jpg");
 
     background-size:cover;
-
     background-position:center;
 
-    z-index:999;
-
+    z-index:9999;
 }
 
-.luxury-card{
+.overlay-dark{
+    position:absolute;
+    inset:0;
+    backdrop-filter:blur(3px);
+}
 
-    width:min(90%,650px);
+.invitation-envelope{
 
-    background:rgba(255,255,255,.75);
+    position:relative;
 
-    backdrop-filter:blur(12px);
+    width:min(92%,700px);
+
+    background:rgba(255,255,255,.88);
+
+    backdrop-filter:blur(15px);
 
     border:1px solid rgba(176,138,69,.25);
 
     border-radius:30px;
 
-    padding:50px;
+    padding:60px 40px;
 
     text-align:center;
 
     box-shadow:
-    0 20px 60px rgba(0,0,0,.12);
-
+    0 20px 80px rgba(0,0,0,.25);
 }
 
-.arabic{
+.arabic-calligraphy{
 
-    font-size:42px;
+    font-size:60px;
 
     color:var(--gold);
 
 }
 
-.salam{
+.welcome-text{
 
     margin-top:15px;
 
@@ -135,33 +96,35 @@ body{
 
 }
 
-.luxury-card h1{
-
-    margin-top:30px;
+.invitation-envelope h1{
 
     font-family:'Cormorant Garamond',serif;
 
-    font-size:60px;
-
-    font-weight:600;
+    font-size:70px;
 
     line-height:1.1;
 
+    margin-top:25px;
+
+    color:var(--charcoal);
+
 }
 
-.luxury-card h1 span{
+.invitation-envelope h1 span{
 
     display:block;
 
-    color:var(--gold);
-
     margin:10px 0;
+
+    color:var(--gold);
 
 }
 
 .invite-label{
 
-    margin-top:25px;
+    margin-top:20px;
+
+    font-size:18px;
 
     color:#666;
 
@@ -177,39 +140,38 @@ body{
 
     border:none;
 
-    padding:16px 35px;
+    padding:18px 40px;
 
     border-radius:50px;
 
     cursor:pointer;
 
+    font-size:16px;
+
     font-weight:600;
 
-    transition:.3s;
-
+    transition:.3s ease;
 }
 
 #openInvitation:hover{
 
     background:var(--gold-dark);
 
-    transform:translateY(-2px);
+    transform:translateY(-3px);
 
 }
 
-/* ===========================
-   MAIN CONTENT
-=========================== */
+/* ==========================
+MAIN CONTENT
+========================== */
 
 #invitation-content{
-
     display:none;
-
 }
 
-/* ===========================
-   SECTIONS
-=========================== */
+/* ==========================
+SECTION
+========================== */
 
 .section{
 
@@ -223,40 +185,55 @@ body{
 
     align-items:center;
 
-    padding:100px 25px;
+    padding:120px 25px;
 
     text-align:center;
 
+    opacity:0;
+
+    transform:translateY(40px);
+
+    transition:1s ease;
 }
 
-/* ===========================
-   HERO
-=========================== */
+.section.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+/* ==========================
+HERO
+========================== */
 
 .hero{
 
     background:
     linear-gradient(
-    rgba(244,238,227,.88),
-    rgba(244,238,227,.88)
+        rgba(244,238,227,.88),
+        rgba(244,238,227,.88)
     ),
-    url("assets/images/hero-arch.jpg");
+    url("ArabicBG3.jpg");
 
     background-size:cover;
 
     background-position:center;
 
+    background-attachment:fixed;
+
 }
 
 .hero-content{
 
-    max-width:900px;
+    max-width:1000px;
 
 }
 
-.arabic-large{
+.hero-arabic{
 
-    font-size:70px;
+    font-size:80px;
 
     color:var(--gold);
 
@@ -264,11 +241,13 @@ body{
 
 .hero-subtitle{
 
-    letter-spacing:3px;
-
     color:var(--gold-dark);
 
+    letter-spacing:3px;
+
     text-transform:uppercase;
+
+    margin-top:10px;
 
 }
 
@@ -276,58 +255,58 @@ body{
 
     font-family:'Cormorant Garamond',serif;
 
-    font-size:80px;
+    font-size:90px;
 
     margin-top:20px;
+
+    font-weight:600;
 
 }
 
 .ampersand{
 
-    font-size:50px;
+    font-size:60px;
 
     color:var(--gold);
-
-    margin:10px 0;
 
 }
 
 .gold-divider{
 
-    width:150px;
+    width:180px;
 
-    height:1px;
+    height:2px;
 
     background:var(--gold);
 
-    margin:40px auto;
+    margin:35px auto;
 
 }
 
 .parent-text{
 
-    margin-top:10px;
-
     color:#555;
+
+    margin-top:8px;
 
 }
 
-/* ===========================
-   CONTENT BOX
-=========================== */
+/* ==========================
+CONTENT BOX
+========================== */
 
 .content-box{
 
-    max-width:850px;
+    width:min(90%,900px);
 
     background:white;
 
-    padding:60px;
+    border-radius:30px;
 
-    border-radius:25px;
+    padding:70px 50px;
 
     box-shadow:
-    0 15px 50px rgba(0,0,0,.08);
+    0 20px 60px rgba(0,0,0,.08);
 
 }
 
@@ -335,29 +314,31 @@ body{
 
     font-family:'Cormorant Garamond',serif;
 
-    font-size:55px;
+    font-size:60px;
 
-    margin-bottom:20px;
+    line-height:1.2;
 
 }
 
 .content-box p{
 
-    font-size:20px;
+    margin-top:15px;
 
     color:#666;
 
+    font-size:20px;
+
 }
 
-/* ===========================
-   COUNTDOWN
-=========================== */
+/* ==========================
+COUNTDOWN
+========================== */
 
 .countdown-section h2{
 
     font-family:'Cormorant Garamond',serif;
 
-    font-size:60px;
+    font-size:70px;
 
     margin-bottom:50px;
 
@@ -377,13 +358,16 @@ body{
 
 #countdown div{
 
-    width:140px;
+    width:150px;
 
-    height:140px;
+    height:150px;
 
     background:white;
 
     border-radius:25px;
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,.08);
 
     display:flex;
 
@@ -391,14 +375,11 @@ body{
 
     justify-content:center;
 
-    box-shadow:
-    0 15px 35px rgba(0,0,0,.08);
-
 }
 
 #countdown span{
 
-    font-size:42px;
+    font-size:50px;
 
     font-weight:700;
 
@@ -412,17 +393,17 @@ body{
 
 }
 
-/* ===========================
-   EVENTS
-=========================== */
+/* ==========================
+EVENTS
+========================== */
 
 .events h2{
 
-    font-size:60px;
-
     font-family:'Cormorant Garamond',serif;
 
-    margin-bottom:50px;
+    font-size:70px;
+
+    margin-bottom:60px;
 
 }
 
@@ -430,23 +411,23 @@ body{
 
     display:flex;
 
-    gap:30px;
-
     flex-wrap:wrap;
 
     justify-content:center;
+
+    gap:30px;
 
 }
 
 .event-card{
 
-    width:350px;
+    width:360px;
 
     background:white;
 
-    padding:40px;
-
     border-radius:25px;
+
+    padding:40px;
 
     box-shadow:
     0 15px 35px rgba(0,0,0,.08);
@@ -455,40 +436,43 @@ body{
 
 .event-card h3{
 
-    font-size:35px;
-
     color:var(--gold);
+
+    font-size:35px;
 
     margin-bottom:20px;
 
 }
 
-/* ===========================
-   VENUE
-=========================== */
+/* ==========================
+VENUE
+========================== */
+
+.venue{
+
+    background:var(--cream);
+
+}
 
 .venue h2{
 
-    font-size:60px;
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:70px;
 
     margin-bottom:50px;
-
-    font-family:'Cormorant Garamond',serif;
 
 }
 
 .venue-card{
 
-    max-width:700px;
+    width:min(90%,800px);
 
     background:white;
 
-    padding:50px;
+    padding:60px;
 
-    border-radius:25px;
-
-    box-shadow:
-    0 15px 35px rgba(0,0,0,.08);
+    border-radius:30px;
 
 }
 
@@ -496,13 +480,21 @@ body{
 
     color:var(--gold);
 
-    margin-bottom:20px;
+    font-size:35px;
+
+}
+
+.venue-card p{
+
+    margin-top:20px;
+
+    line-height:2;
 
 }
 
 .venue-buttons{
 
-    margin-top:30px;
+    margin-top:35px;
 
     display:flex;
 
@@ -525,26 +517,26 @@ body{
 
     border:none;
 
-    padding:14px 25px;
-
     border-radius:50px;
+
+    padding:14px 30px;
 
     cursor:pointer;
 
 }
 
-/* ===========================
-   BLESSING
-=========================== */
+/* ==========================
+LOVE
+========================== */
 
-.blessing{
+.love-faith{
 
     background:
     linear-gradient(
-    rgba(244,238,227,.92),
-    rgba(244,238,227,.92)
+        rgba(244,238,227,.92),
+        rgba(244,238,227,.92)
     ),
-    url("assets/images/mosque-bg.jpg");
+    url("ArabicBG3.jpg");
 
     background-size:cover;
 
@@ -552,9 +544,19 @@ body{
 
 }
 
-/* ===========================
-   CLOSING
-=========================== */
+/* ==========================
+BLESSING
+========================== */
+
+.blessing{
+
+    background:var(--cream);
+
+}
+
+/* ==========================
+CLOSING
+========================== */
 
 .closing{
 
@@ -568,7 +570,7 @@ body{
 
     font-family:'Cormorant Garamond',serif;
 
-    font-size:70px;
+    font-size:80px;
 
     color:var(--gold);
 
@@ -580,42 +582,40 @@ body{
 
 }
 
-/* ===========================
-   MOBILE
-=========================== */
+/* ==========================
+MOBILE
+========================== */
 
 @media(max-width:768px){
 
+    .invitation-envelope h1{
+        font-size:45px;
+    }
+
     .couple-name{
-
-        font-size:52px;
-
+        font-size:55px;
     }
 
     .content-box{
-
-        padding:35px;
-
+        padding:40px 25px;
     }
 
     .content-box h2{
-
         font-size:40px;
-
     }
 
     .countdown-section h2,
     .events h2,
     .venue h2{
-
         font-size:42px;
-
     }
 
-    .luxury-card h1{
-
-        font-size:42px;
-
+    #countdown div{
+        width:120px;
+        height:120px;
     }
 
+    #countdown span{
+        font-size:36px;
+    }
 }
