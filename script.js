@@ -1,250 +1,212 @@
-document.addEventListener("DOMContentLoaded", () => {
+// =====================================
+// OPEN INVITATION
+// =====================================
 
-  const envelopeScreen = document.getElementById("envelope-screen");
-  const openBtn = document.getElementById("openInvite");
-  const mainContent = document.getElementById("mainContent");
+const openButton =
+document.getElementById("openInvitation");
 
-  if (openBtn) {
-    openBtn.addEventListener("click", () => {
-      envelopeScreen.style.opacity = "0";
-      envelopeScreen.style.transition = "opacity 1s ease";
+const envelopeScreen =
+document.getElementById("envelope-screen");
 
-      setTimeout(() => {
-        envelopeScreen.style.display = "none";
-        mainContent.style.display = "block";
-        revealVisible();
-      }, 1000);
-    });
-  }
+const invitationContent =
+document.getElementById("invitation-content");
 
-  fetch("config.json")
-    .then(r => r.json())
-    .then(config => {
+if(openButton){
 
-      const groom = document.getElementById("groomName");
-      const bride = document.getElementById("brideName");
+openButton.addEventListener("click",()=>{
 
-      if (groom) groom.textContent = config.groomName;
-      if (bride) bride.textContent = config.brideName;
+envelopeScreen.style.transition =
+"all 1s ease";
 
-      startCountdown(config.nikah.date);
-      handleReception(config);
-    })
-    .catch(err => {
-      console.log("Config load failed", err);
-      startCountdown("2026-09-04");
-    });
+envelopeScreen.style.opacity = "0";
 
-  initGuestGreeting();
-  initScrollAnimations();
-  createLanterns();
+setTimeout(()=>{
+
+envelopeScreen.style.display="none";
+
+invitationContent.style.display="block";
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
 });
 
-function startCountdown(dateString) {
+observeSections();
 
-  const countdownEl = document.getElementById("countdown");
+},1000);
 
-  function update() {
+});
 
-    const target = new Date(dateString + "T00:00:00");
-    const now = new Date();
-
-    const diff = target - now;
-
-    if (diff <= 0) {
-      countdownEl.innerHTML =
-        "<h3>Wedding Day Has Arrived ✨</h3>";
-      return;
-    }
-
-    const days =
-      Math.floor(diff / (1000 * 60 * 60 * 24));
-
-    const hours =
-      Math.floor((diff / (1000 * 60 * 60)) % 24);
-
-    const minutes =
-      Math.floor((diff / (1000 * 60)) % 60);
-
-    const seconds =
-      Math.floor((diff / 1000) % 60);
-
-    countdownEl.innerHTML = `
-      <div class="count-box">
-        <h2>${days}</h2>
-        <p>Days</p>
-      </div>
-
-      <div class="count-box">
-        <h2>${hours}</h2>
-        <p>Hours</p>
-      </div>
-
-      <div class="count-box">
-        <h2>${minutes}</h2>
-        <p>Minutes</p>
-      </div>
-
-      <div class="count-box">
-        <h2>${seconds}</h2>
-        <p>Seconds</p>
-      </div>
-    `;
-  }
-
-  update();
-
-  setInterval(update, 1000);
 }
 
-function initGuestGreeting() {
+// =====================================
+// COUNTDOWN
+// =====================================
 
-  const params =
-    new URLSearchParams(window.location.search);
+const weddingDate =
+new Date("2026-09-04T11:00:00").getTime();
 
-  const guest =
-    params.get("guest");
+function updateCountdown(){
 
-  if (!guest) return;
+const now =
+new Date().getTime();
 
-  const hero =
-    document.getElementById("hero");
+const distance =
+weddingDate - now;
 
-  const welcome =
-    document.createElement("div");
+if(distance <= 0){
 
-  welcome.innerHTML = `
-    <h3 style="margin-bottom:20px">
-      Welcome ${guest}
-    </h3>
-  `;
+document.getElementById("days").innerText="00";
+document.getElementById("hours").innerText="00";
+document.getElementById("minutes").innerText="00";
+document.getElementById("seconds").innerText="00";
 
-  hero.prepend(welcome);
+return;
+
 }
 
-function initScrollAnimations() {
+const days =
+Math.floor(distance/(1000*60*60*24));
 
-  const scenes =
-    document.querySelectorAll(".scene");
+const hours =
+Math.floor(
+(distance%(1000*60*60*24))
+/
+(1000*60*60)
+);
 
-  scenes.forEach(scene => {
-    scene.classList.add("fade-up");
-  });
+const minutes =
+Math.floor(
+(distance%(1000*60*60))
+/
+(1000*60)
+);
 
-  revealVisible();
+const seconds =
+Math.floor(
+(distance%(1000*60))
+/
+1000
+);
 
-  window.addEventListener(
-    "scroll",
-    revealVisible
-  );
+document.getElementById("days").innerText =
+String(days).padStart(2,"0");
+
+document.getElementById("hours").innerText =
+String(hours).padStart(2,"0");
+
+document.getElementById("minutes").innerText =
+String(minutes).padStart(2,"0");
+
+document.getElementById("seconds").innerText =
+String(seconds).padStart(2,"0");
+
 }
 
-function revealVisible() {
+setInterval(updateCountdown,1000);
 
-  const elements =
-    document.querySelectorAll(".fade-up");
+updateCountdown();
 
-  elements.forEach(el => {
+// =====================================
+// COPY ADDRESS
+// =====================================
 
-    const rect =
-      el.getBoundingClientRect();
+const copyButton =
+document.getElementById("copyAddress");
 
-    if (
-      rect.top <
-      window.innerHeight * 0.85
-    ) {
-      el.classList.add("visible");
-    }
-  });
+if(copyButton){
+
+copyButton.addEventListener("click",()=>{
+
+const address =
+`MASJID-E-KHADRIA
+Millers Road
+Benson Town
+Bangalore 560046`;
+
+navigator.clipboard.writeText(address);
+
+copyButton.innerText =
+"Copied ✓";
+
+setTimeout(()=>{
+
+copyButton.innerText =
+"Copy Address";
+
+},2500);
+
+});
+
 }
 
-function createLanterns() {
+// =====================================
+// SCROLL ANIMATION
+// =====================================
 
-  for (let i = 0; i < 8; i++) {
+function observeSections(){
 
-    const lantern =
-      document.createElement("div");
+const sections =
+document.querySelectorAll(".section");
 
-    lantern.className =
-      "lantern";
+const observer =
+new IntersectionObserver(
 
-    lantern.style.left =
-      Math.random() * 100 + "%";
+(entries)=>{
 
-    lantern.style.animationDelay =
-      Math.random() * 12 + "s";
+entries.forEach(entry=>{
 
-    lantern.style.animationDuration =
-      15 + Math.random() * 15 + "s";
+if(entry.isIntersecting){
 
-    document.body.appendChild(
-      lantern
-    );
-  }
+entry.target.classList.add("show");
+
 }
 
-function handleReception(config) {
+});
 
-  const reception =
-    config.reception &&
-    config.reception.venue &&
-    config.reception.venue.trim() !== "";
+},
 
-  if (!reception) {
-
-    const allSections =
-      document.querySelectorAll("section");
-
-    allSections.forEach(section => {
-
-      const txt =
-        section.innerText.toLowerCase();
-
-      if (
-        txt.includes("reception") &&
-        txt.includes("coming soon")
-      ) {
-        section.style.opacity = "0.8";
-      }
-    });
-  }
+{
+threshold:0.15
 }
 
-function copyAddress(text) {
+);
 
-  navigator.clipboard
-    .writeText(text)
-    .then(() => {
-      alert("Address copied");
-    });
+sections.forEach(section=>{
+
+observer.observe(section);
+
+});
+
 }
 
-function openMaps(url) {
+// =====================================
+// HERO PARALLAX
+// =====================================
 
-  if (!url) return;
+window.addEventListener("scroll",()=>{
 
-  window.open(url, "_blank");
+const hero =
+document.querySelector(".hero");
+
+if(hero){
+
+const offset =
+window.pageYOffset;
+
+hero.style.backgroundPositionY =
+offset * 0.4 + "px";
+
 }
 
-let bgAudio = null;
+});
 
-function initMusic() {
+// =====================================
+// GOLD FADE ON LOAD
+// =====================================
 
-  bgAudio =
-    new Audio(
-      "assets/music/nasheed.mp3"
-    );
+window.addEventListener("load",()=>{
 
-  bgAudio.loop = true;
-}
+document.body.style.opacity="1";
 
-function toggleMusic() {
-
-  if (!bgAudio) return;
-
-  if (bgAudio.paused) {
-    bgAudio.play();
-  } else {
-    bgAudio.pause();
-  }
-}
+});
