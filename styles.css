@@ -83,27 +83,14 @@ body{
 }
 .envelope{
 
-  width:min(90vw,520px);
+  width:min(90vw,700px);
 
   padding:60px;
 
   text-align:center;
 
   border-radius:32px;
-
-  background:
-  linear-gradient(
-  145deg,
-  rgba(255,255,255,.85),
-  rgba(255,255,255,.45));
-
-  backdrop-filter:blur(18px);
-
-  border:2px solid rgba(176,138,69,.35);
-
-  box-shadow:
-  0 30px 80px rgba(0,0,0,.12),
-  0 0 40px rgba(176,138,69,.15);
+background: transparent;
 }
 
 .envelope h1{
@@ -301,6 +288,17 @@ footer{
   .card{
     padding:24px;
   }
+}
+
+.divider{
+
+  color:#B08A45;
+
+  font-size:2rem;
+
+  margin:25px 0;
+
+  letter-spacing:15px;
 }
 @keyframes floatArch{
 
