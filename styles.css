@@ -1,0 +1,219 @@
+
+:root{
+  --ivory:#f8f5ef;
+  --cream:#fffaf2;
+  --gold:#c8a96b;
+  --deep-gold:#a8833f;
+  --charcoal:#222;
+  --glass:rgba(255,255,255,.12);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(180deg,#faf7f2,#f2ebdf);
+  color:var(--charcoal);
+  overflow-x:hidden;
+}
+
+#envelope-screen{
+  position:fixed;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:
+  radial-gradient(circle at center,
+  rgba(200,169,107,.25),
+  transparent 50%),
+  #f7f3ec;
+  z-index:9999;
+}
+
+.envelope{
+  width:min(90vw,420px);
+  padding:40px;
+  text-align:center;
+  border-radius:24px;
+  backdrop-filter:blur(12px);
+  background:rgba(255,255,255,.6);
+  border:1px solid rgba(200,169,107,.4);
+  box-shadow:0 20px 60px rgba(0,0,0,.12);
+}
+
+.envelope h1{
+  font-family:'Cinzel',serif;
+  font-size:3rem;
+  color:var(--deep-gold);
+}
+
+.envelope p{
+  margin-top:12px;
+  margin-bottom:24px;
+}
+
+.envelope button{
+  border:none;
+  cursor:pointer;
+  padding:14px 28px;
+  border-radius:999px;
+  background:linear-gradient(135deg,var(--gold),var(--deep-gold));
+  color:white;
+  font-weight:600;
+}
+
+.scene{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:40px 24px;
+  position:relative;
+}
+
+.scene::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at top,
+    rgba(200,169,107,.12),
+    transparent 40%);
+}
+
+#hero{
+  background:
+  linear-gradient(rgba(0,0,0,.25),rgba(0,0,0,.25)),
+  url("assets/images/hero.jpg");
+  background-size:cover;
+  background-position:center;
+  color:white;
+}
+
+h1,h2{
+  font-family:'Cormorant Garamond',serif;
+}
+
+#hero h1{
+  font-size:clamp(2.2rem,6vw,5rem);
+  margin-bottom:12px;
+}
+
+#hero p{
+  font-size:1.2rem;
+}
+
+blockquote{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2rem,5vw,4rem);
+  max-width:900px;
+  color:var(--deep-gold);
+}
+
+#groomName,
+#brideName{
+  font-size:clamp(3rem,8vw,6rem);
+  letter-spacing:3px;
+}
+
+#countdown{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(100px,1fr));
+  gap:16px;
+  width:min(700px,100%);
+  margin-top:30px;
+}
+
+.count-box{
+  background:rgba(255,255,255,.6);
+  border:1px solid rgba(200,169,107,.3);
+  backdrop-filter:blur(10px);
+  border-radius:18px;
+  padding:20px;
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.card{
+  width:min(800px,100%);
+  padding:32px;
+  border-radius:24px;
+  background:rgba(255,255,255,.55);
+  border:1px solid rgba(200,169,107,.3);
+  backdrop-filter:blur(12px);
+  box-shadow:0 20px 50px rgba(0,0,0,.08);
+}
+
+.gold-divider{
+  width:120px;
+  height:2px;
+  margin:24px auto;
+  background:linear-gradient(90deg,
+  transparent,
+  var(--gold),
+  transparent);
+}
+
+.lantern{
+  position:fixed;
+  bottom:-120px;
+  width:30px;
+  height:50px;
+  border-radius:12px;
+  background:rgba(255,215,120,.8);
+  filter:blur(.2px);
+  animation:floatLantern 18s linear infinite;
+  opacity:.45;
+}
+
+@keyframes floatLantern{
+  from{
+    transform:translateY(0);
+  }
+  to{
+    transform:translateY(-120vh);
+  }
+}
+
+.fade-up{
+  opacity:0;
+  transform:translateY(30px);
+  transition:all .8s ease;
+}
+
+.fade-up.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+footer{
+  padding:50px 20px;
+  text-align:center;
+}
+
+@media(max-width:768px){
+
+  .scene{
+    padding:30px 20px;
+  }
+
+  #groomName,
+  #brideName{
+    font-size:2.8rem;
+  }
+
+  .card{
+    padding:24px;
+  }
+}
