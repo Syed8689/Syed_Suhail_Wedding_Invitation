@@ -54,12 +54,14 @@ ENVELOPE
     position:absolute;
     inset:0;
     backdrop-filter:blur(3px);
+    pointer-events:none;
 }
 
 .invitation-envelope{
 
+    
     position:relative;
-
+    z-index:100;
     width:min(92%,700px);
 
     background:rgba(255,255,255,.88);
