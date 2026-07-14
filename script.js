@@ -236,7 +236,7 @@ function initializeCopyAddress() {
     if (!copyButton) return;
 
     const receptionAddress =
-        "Reception Venue To Be Announced";
+        "Classic Banquet Hall, No.831, 4th Block, HBR Layout, Bangalore 560043";
 
     copyButton.addEventListener(
         "click",
