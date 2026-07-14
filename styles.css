@@ -41,21 +41,46 @@ body{
   justify-content:center;
 
   background:
-  linear-gradient(
-    rgba(20,20,20,.45),
-    rgba(20,20,20,.45)
-  ),
-    url("ArabicBG3.jpg");
-
-  background-size:cover;
-  background-position:center;
-  background-repeat:no-repeat;
+  radial-gradient(
+    circle at center,
+    #f6f0e5 0%,
+    #ece2d1 50%,
+    #e4d7c0 100%
+  );
 
   overflow:hidden;
 
   z-index:9999;
 }
+#envelope-screen::before{
 
+  content:"";
+
+  position:absolute;
+
+  width:900px;
+  height:900px;
+
+  background:
+  url("ArabicBG3.jpg");
+
+  background-size:contain;
+  background-repeat:no-repeat;
+  background-position:center;
+
+  opacity:.18;
+
+  filter:
+  blur(1px)
+  drop-shadow(
+  0 0 40px
+  rgba(176,138,69,.25));
+
+  animation:
+  floatArch 8s ease-in-out infinite;
+
+  pointer-events:none;
+}
 .envelope{
 
   width:min(90vw,520px);
@@ -275,5 +300,25 @@ footer{
 
   .card{
     padding:24px;
+  }
+}
+@keyframes floatArch{
+
+  0%{
+    transform:
+    translateY(0px)
+    scale(1);
+  }
+
+  50%{
+    transform:
+    translateY(-10px)
+    scale(1.02);
+  }
+
+  100%{
+    transform:
+    translateY(0px)
+    scale(1);
   }
 }
