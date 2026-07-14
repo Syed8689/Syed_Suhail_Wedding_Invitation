@@ -1,20 +1,13 @@
-const openButton =
-document.getElementById("openInvitation");
+alert("SCRIPT LOADED");
 
-const envelopeScreen =
-document.getElementById("envelope-screen");
+const btn = document.getElementById("openInvitation");
 
-const invitationContent =
-document.getElementById("invitation-content");
+if(btn){
 
-if(openButton){
+    btn.onclick = function(){
 
-openButton.onclick = function(){
+        alert("BUTTON CLICKED");
 
-envelopeScreen.style.display = "none";
-
-invitationContent.style.display = "block";
-
-};
+    };
 
 }
