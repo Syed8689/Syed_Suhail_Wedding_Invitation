@@ -1,27 +1,28 @@
-// ==========================================
-// WEDDING INVITATION SCRIPT
+// =====================================
+// WEDDING INVITATION V2
 // Syed Suhail & Taskeen Fathima
-// ==========================================
+// =====================================
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    initializeInvitation();
+    initializeInvitationOpening();
     initializeCountdown();
     initializeScrollReveal();
     initializeCopyAddress();
-    initializeSmoothAnimations();
+    initializeParallax();
+    initializeGlowEffects();
 
 });
 
-// ==========================================
+// =====================================
 // OPEN INVITATION
-// ==========================================
+// =====================================
 
-function initializeInvitation() {
+function initializeInvitationOpening() {
 
     const openButton = document.getElementById("openInvitationBtn");
-    const landingScreen = document.getElementById("landing-screen");
-    const mainInvitation = document.getElementById("mainInvitation");
+    const landingScreen = document.getElementById("landingScreen");
+    const invitationWrapper = document.getElementById("invitationWrapper");
 
     if (!openButton) return;
 
@@ -29,21 +30,30 @@ function initializeInvitation() {
 
         openButton.disabled = true;
 
-        landingScreen.style.transition = "opacity 0.8s ease";
+        openButton.innerHTML = "Opening...";
+
+        landingScreen.style.transition =
+            "opacity 1s ease, transform 1s ease";
+
         landingScreen.style.opacity = "0";
+
+        landingScreen.style.transform =
+            "scale(1.05)";
 
         setTimeout(() => {
 
             landingScreen.style.display = "none";
 
-            mainInvitation.classList.remove("hidden");
+            invitationWrapper.classList.remove("hidden");
 
-            mainInvitation.style.opacity = "0";
+            invitationWrapper.style.opacity = "0";
 
             requestAnimationFrame(() => {
 
-                mainInvitation.style.transition = "opacity 1s ease";
-                mainInvitation.style.opacity = "1";
+                invitationWrapper.style.transition =
+                    "opacity 1.2s ease";
+
+                invitationWrapper.style.opacity = "1";
 
             });
 
@@ -52,100 +62,154 @@ function initializeInvitation() {
                 behavior: "smooth"
             });
 
-        }, 800);
+            triggerInitialReveal();
+
+        }, 1000);
 
     });
 
 }
 
-// ==========================================
-// COUNTDOWN TIMER
-// ==========================================
+// =====================================
+// INITIAL REVEAL
+// =====================================
+
+function triggerInitialReveal() {
+
+    const firstRevealElements =
+        document.querySelectorAll(".reveal");
+
+    firstRevealElements.forEach((element, index) => {
+
+        setTimeout(() => {
+
+            element.classList.add("active");
+
+        }, index * 120);
+
+    });
+
+}
+
+// =====================================
+// COUNTDOWN
+// =====================================
 
 function initializeCountdown() {
 
-    const targetDate = new Date("September 04, 2026 00:00:00").getTime();
+    const targetDate =
+        new Date("September 04, 2026 00:00:00").getTime();
 
-    const daysEl = document.getElementById("days");
-    const hoursEl = document.getElementById("hours");
-    const minutesEl = document.getElementById("minutes");
-    const secondsEl = document.getElementById("seconds");
+    const daysElement =
+        document.getElementById("days");
 
-    if (!daysEl) return;
+    const hoursElement =
+        document.getElementById("hours");
+
+    const minutesElement =
+        document.getElementById("minutes");
+
+    const secondsElement =
+        document.getElementById("seconds");
+
+    if (!daysElement) return;
 
     function updateCountdown() {
 
         const now = new Date().getTime();
-        const distance = targetDate - now;
+
+        const distance =
+            targetDate - now;
 
         if (distance <= 0) {
 
-            daysEl.textContent = "00";
-            hoursEl.textContent = "00";
-            minutesEl.textContent = "00";
-            secondsEl.textContent = "00";
+            daysElement.textContent = "00";
+            hoursElement.textContent = "00";
+            minutesElement.textContent = "00";
+            secondsElement.textContent = "00";
 
             return;
         }
 
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const days = Math.floor(
+            distance /
+            (1000 * 60 * 60 * 24)
+        );
 
         const hours = Math.floor(
-            (distance % (1000 * 60 * 60 * 24))
-            / (1000 * 60 * 60)
+            (distance %
+                (1000 * 60 * 60 * 24))
+            /
+            (1000 * 60 * 60)
         );
 
         const minutes = Math.floor(
-            (distance % (1000 * 60 * 60))
-            / (1000 * 60)
+            (distance %
+                (1000 * 60 * 60))
+            /
+            (1000 * 60)
         );
 
         const seconds = Math.floor(
-            (distance % (1000 * 60))
-            / 1000
+            (distance %
+                (1000 * 60))
+            /
+            1000
         );
 
-        daysEl.textContent = String(days).padStart(2, "0");
-        hoursEl.textContent = String(hours).padStart(2, "0");
-        minutesEl.textContent = String(minutes).padStart(2, "0");
-        secondsEl.textContent = String(seconds).padStart(2, "0");
+        daysElement.textContent =
+            String(days).padStart(2, "0");
+
+        hoursElement.textContent =
+            String(hours).padStart(2, "0");
+
+        minutesElement.textContent =
+            String(minutes).padStart(2, "0");
+
+        secondsElement.textContent =
+            String(seconds).padStart(2, "0");
 
     }
 
     updateCountdown();
+
     setInterval(updateCountdown, 1000);
 
 }
 
-// ==========================================
+// =====================================
 // SCROLL REVEAL
-// ==========================================
+// =====================================
 
 function initializeScrollReveal() {
 
-    const revealElements = document.querySelectorAll(".reveal");
+    const revealElements =
+        document.querySelectorAll(".reveal");
 
-    const observer = new IntersectionObserver(
+    const observer =
+        new IntersectionObserver(
 
-        (entries) => {
+            (entries) => {
 
-            entries.forEach((entry) => {
+                entries.forEach((entry) => {
 
-                if (entry.isIntersecting) {
+                    if (entry.isIntersecting) {
 
-                    entry.target.classList.add("active");
+                        entry.target.classList.add(
+                            "active"
+                        );
 
-                }
+                    }
 
-            });
+                });
 
-        },
+            },
 
-        {
-            threshold: 0.15
-        }
+            {
+                threshold: 0.15
+            }
 
-    );
+        );
 
     revealElements.forEach((element) => {
 
@@ -155,41 +219,53 @@ function initializeScrollReveal() {
 
 }
 
-// ==========================================
+// =====================================
 // COPY ADDRESS
-// ==========================================
+// =====================================
 
 function initializeCopyAddress() {
 
-    const copyButton = document.getElementById("copyAddressBtn");
-    const toast = document.getElementById("toast");
+    const copyButton =
+        document.getElementById(
+            "copyAddressBtn"
+        );
+
+    const toast =
+        document.getElementById("toast");
 
     if (!copyButton) return;
 
-    const address =
-        "MASJID-E-KHADRIA, Millers Road, Benson Town, Bangalore 560046";
+    const receptionAddress =
+        "Reception Venue To Be Announced";
 
-    copyButton.addEventListener("click", async () => {
+    copyButton.addEventListener(
+        "click",
+        async () => {
 
-        try {
+            try {
 
-            await navigator.clipboard.writeText(address);
+                await navigator.clipboard.writeText(
+                    receptionAddress
+                );
 
-            showToast(
-                "Address copied successfully"
-            );
+                showToast(
+                    "Address copied successfully"
+                );
 
-        } catch (error) {
+            } catch {
 
-            fallbackCopy(address);
+                fallbackCopy(
+                    receptionAddress
+                );
 
-            showToast(
-                "Address copied successfully"
-            );
+                showToast(
+                    "Address copied successfully"
+                );
+
+            }
 
         }
-
-    });
+    );
 
     function showToast(message) {
 
@@ -203,98 +279,131 @@ function initializeCopyAddress() {
 
             toast.classList.remove("show");
 
-        }, 3000);
+        }, 2500);
 
     }
 
 }
 
-// ==========================================
+// =====================================
 // FALLBACK COPY
-// ==========================================
+// =====================================
 
 function fallbackCopy(text) {
 
-    const textarea = document.createElement("textarea");
+    const textArea =
+        document.createElement(
+            "textarea"
+        );
 
-    textarea.value = text;
+    textArea.value = text;
 
-    textarea.style.position = "fixed";
-    textarea.style.left = "-9999px";
+    textArea.style.position =
+        "fixed";
 
-    document.body.appendChild(textarea);
+    textArea.style.left =
+        "-9999px";
 
-    textarea.focus();
-    textarea.select();
+    document.body.appendChild(
+        textArea
+    );
+
+    textArea.focus();
+    textArea.select();
 
     try {
 
         document.execCommand("copy");
 
-    } catch (e) {
+    } catch (error) {
 
-        console.error("Copy failed", e);
+        console.error(error);
 
     }
 
-    document.body.removeChild(textarea);
+    document.body.removeChild(
+        textArea
+    );
 
 }
 
-// ==========================================
-// EXTRA ANIMATIONS
-// ==========================================
+// =====================================
+// PARALLAX
+// =====================================
 
-function initializeSmoothAnimations() {
+function initializeParallax() {
+
+    const background =
+        document.querySelector(
+            ".background-image"
+        );
+
+    if (!background) return;
+
+    window.addEventListener(
+        "scroll",
+        () => {
+
+            const offset =
+                window.scrollY * 0.06;
+
+            background.style.transform =
+                `scale(1.08) translateY(${offset}px)`;
+
+        }
+    );
+
+}
+
+// =====================================
+// CARD HOVER GLOW
+// =====================================
+
+function initializeGlowEffects() {
 
     const cards = document.querySelectorAll(
-        ".event-card, .section-card, .contact-card, .count-box"
+        `
+        .landing-card,
+        .main-arch,
+        .events-card,
+        .venue-card,
+        .closing-card,
+        .count-item,
+        .contact-box
+        `
     );
 
     cards.forEach((card) => {
 
-        card.addEventListener("mouseenter", () => {
+        card.addEventListener(
+            "mouseenter",
+            () => {
 
-            card.style.transform =
-                "translateY(-8px)";
+                card.style.transition =
+                    "all .35s ease";
 
-            card.style.transition =
-                "all 0.35s ease";
+                card.style.boxShadow =
+                    "0 0 40px rgba(176,138,69,.18)";
 
-        });
+            }
+        );
 
-        card.addEventListener("mouseleave", () => {
+        card.addEventListener(
+            "mouseleave",
+            () => {
 
-            card.style.transform =
-                "translateY(0px)";
+                card.style.boxShadow = "";
 
-        });
+            }
+        );
 
     });
 
 }
 
-// ==========================================
-// OPTIONAL PARALLAX EFFECT
-// ==========================================
-
-window.addEventListener("scroll", () => {
-
-    const background =
-        document.querySelector(".global-background");
-
-    if (!background) return;
-
-    const scrollY = window.scrollY;
-
-    background.style.transform =
-        `scale(1.08) translateY(${scrollY * 0.08}px)`;
-
-});
-
-// ==========================================
-// PRELOAD BACKGROUND IMAGE
-// ==========================================
+// =====================================
+// PRELOAD BACKGROUND
+// =====================================
 
 (function preloadBackground() {
 
@@ -304,9 +413,9 @@ window.addEventListener("scroll", () => {
 
 })();
 
-// ==========================================
-// PREVENT DOUBLE TAP ZOOM
-// ==========================================
+// =====================================
+// MOBILE DOUBLE TAP FIX
+// =====================================
 
 let lastTouchEnd = 0;
 
@@ -314,9 +423,12 @@ document.addEventListener(
     "touchend",
     function (event) {
 
-        const now = new Date().getTime();
+        const now =
+            new Date().getTime();
 
-        if (now - lastTouchEnd <= 300) {
+        if (
+            now - lastTouchEnd <= 300
+        ) {
 
             event.preventDefault();
 
@@ -328,30 +440,58 @@ document.addEventListener(
     false
 );
 
-// ==========================================
+// =====================================
 // KEYBOARD ACCESSIBILITY
-// ==========================================
+// =====================================
 
-document.addEventListener("keydown", (event) => {
-
-    if (event.key === "Enter") {
-
-        const button =
-            document.getElementById("openInvitationBtn");
+document.addEventListener(
+    "keydown",
+    (event) => {
 
         if (
-            button &&
-            document.activeElement === button
+            event.key === "Enter"
         ) {
 
-            button.click();
+            const button =
+                document.getElementById(
+                    "openInvitationBtn"
+                );
+
+            if (
+                button &&
+                document.activeElement ===
+                    button
+            ) {
+
+                button.click();
+
+            }
 
         }
 
     }
+);
 
-});
+// =====================================
+// PERFORMANCE OPTIMIZATION
+// =====================================
 
-// ==========================================
-// END OF FILE
-// ==========================================
+window.addEventListener(
+    "load",
+    () => {
+
+        document.body.classList.add(
+            "loaded"
+        );
+
+    }
+);
+
+// =====================================
+// FUTURE PLACEHOLDER
+// Background Music Toggle
+// RSVP
+// Dynamic Config Loader
+// =====================================
+
+// End of File
