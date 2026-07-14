@@ -32,16 +32,27 @@ body{
 }
 
 #envelope-screen{
+
   position:fixed;
   inset:0;
+
   display:flex;
   align-items:center;
   justify-content:center;
+
   background:
-  radial-gradient(circle at center,
-  rgba(200,169,107,.25),
-  transparent 50%),
-  #f7f3ec;
+  linear-gradient(
+    rgba(20,20,20,.45),
+    rgba(20,20,20,.45)
+  ),
+    url("Arabic BG3.jpg");
+
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+
+  overflow:hidden;
+
   z-index:9999;
 }
 
