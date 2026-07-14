@@ -1,76 +1,13 @@
 {
-  "wedding": {
-    "groom": {
-      "name": "SYED SUHAIL",
-      "father": "Mr. Syed Khadeer Ahmed",
-      "mother": "Mrs. Shameem"
-    },
-
-    "bride": {
-      "name": "TASKEEN FATHIMA",
-      "father": "Late Mr. Allabakash",
-      "mother": "Mrs. Fathima"
-    },
-
-    "invitation": {
-      "greeting": "Assalamu Alaikum Wa Rahmatullahi Wa Barakatuh",
-      "bismillah": "بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ",
-      "verse": "And We Created You In Pairs",
-      "verseReference": "Quran 78:8",
-      "message": "We joyfully invite you to celebrate our Nikah and Reception with your presence and blessings.",
-      "loveMessage": "Two Souls. One Journey. A Lifetime Of Love & Faith.",
-      "blessingMessage": "Your Presence Will Be Our Greatest Blessing",
-      "footerTitle": "JazakAllahu Khair",
-      "footerMessage": "Thank You For Celebrating With Us"
-    },
-
-    "countdown": {
-      "targetDate": "2026-09-04T00:00:00"
-    },
-
-    "nikah": {
-      "title": "NIKAH",
-      "day": "Friday",
-      "date": "04 September 2026",
-      "venue": "MASJID-E-KHADRIA",
-      "addressLine1": "Millers Road",
-      "addressLine2": "Benson Town",
-      "city": "Bangalore",
-      "postalCode": "560046",
-      "googleMapsUrl": "https://maps.google.com"
-    },
-
-    "reception": {
-      "title": "RECEPTION",
-      "day": "Saturday",
-      "date": "05 September 2026",
-      "venue": "To Be Announced",
-      "description": "Reception details will be updated soon."
-    },
-
-    "contacts": {
-      "groomSide": {
-        "label": "Groom Side Contact",
-        "name": "Coming Soon",
-        "phone": ""
-      },
-
-      "brideSide": {
-        "label": "Bride Side Contact",
-        "name": "Coming Soon",
-        "phone": ""
-      }
-    },
-
-    "receptionDetails": {
-      "title": "Reception Details",
-      "description": "Coming Soon"
-    }
+  "website": {
+    "title": "Syed Suhail & Taskeen Fathima | Wedding Invitation",
+    "description": "Nikah & Reception Invitation",
+    "version": "2.0.0",
+    "deployment": "GitHub Pages",
+    "backgroundImage": "ArabicBG3.jpg"
   },
 
   "theme": {
-    "backgroundImage": "ArabicBG3.jpg",
-
     "colors": {
       "warmIvory": "#F4EEE3",
       "antiqueCream": "#EAE1D1",
@@ -78,13 +15,116 @@
       "darkGold": "#8D6A2F",
       "text": "#2E2A26",
       "white": "#FFFFFF"
+    },
+
+    "fonts": {
+      "primary": "Inter",
+      "heading": "Bodoni Moda",
+      "accent": "Cormorant Garamond",
+      "arabic": "Noto Naskh Arabic"
     }
   },
 
-  "website": {
-    "title": "Syed Suhail & Taskeen Fathima | Wedding Invitation",
-    "description": "Digital Wedding Invitation Website",
-    "version": "1.0.0",
-    "deployment": "GitHub Pages"
+  "landingScreen": {
+    "arabicText": "بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ",
+    "greeting": "Assalamu Alaikum Wa Rahmatullahi Wa Barakatuh",
+    "groomName": "SYED SUHAIL",
+    "brideName": "TASKEEN FATHIMA",
+    "subtitle": "Nikah & Reception Invitation",
+    "buttonText": "Open Invitation"
+  },
+
+  "sectionA": {
+    "arabicText": "بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ",
+
+    "quranVerse": {
+      "text": "And We Created You In Pairs",
+      "reference": "Quran 78:8"
+    },
+
+    "blessingText": "WITH THE BLESSINGS OF ALLAH AND OUR BELOVED PARENTS",
+
+    "invitationMessage": "We joyfully invite you to celebrate the Nikah & Reception of",
+
+    "groomName": "SYED SUHAIL",
+
+    "brideName": "TASKEEN FATHIMA",
+
+    "loveMessage": "Two Souls. One Journey. A Lifetime Of Love & Faith."
+  },
+
+  "countdown": {
+    "enabled": true,
+    "targetDate": "2026-09-04T00:00:00"
+  },
+
+  "nikah": {
+    "title": "NIKAH",
+    "day": "Friday",
+    "date": "04 September 2026",
+
+    "venue": {
+      "name": "MASJID-E-KHADRIA",
+      "addressLine1": "Millers Road",
+      "addressLine2": "Benson Town",
+      "city": "Bangalore",
+      "postalCode": "560046"
+    }
+  },
+
+  "reception": {
+    "title": "RECEPTION",
+    "day": "Saturday",
+    "date": "05 September 2026",
+
+    "venue": {
+      "name": "To Be Announced",
+      "description": "Reception details will be updated soon"
+    }
+  },
+
+  "sectionC": {
+    "title": "WALIMA / RECEPTION DETAILS",
+
+    "venueName": "To Be Announced",
+
+    "address": "Reception venue details will be updated soon",
+
+    "copyAddressEnabled": true,
+
+    "googleMapsUrl": "https://maps.app.goo.gl/8jMvVEKfyo7q63AE8?g_st=iw"
+  },
+
+  "sectionD": {
+    "loveMessage": "Two Souls. One Journey. A Lifetime Of Love & Faith.",
+
+    "blessingMessage": "Your Presence Will Be Our Greatest Blessing",
+
+    "contacts": {
+      "groomSide": {
+        "title": "Groom Side Contact",
+        "name": "Coming Soon",
+        "phone": ""
+      },
+
+      "brideSide": {
+        "title": "Bride Side Contact",
+        "name": "Coming Soon",
+        "phone": ""
+      }
+    },
+
+    "footer": {
+      "title": "JazakAllahu Khair",
+      "message": "Thank You For Celebrating With Us"
+    }
+  },
+
+  "futureFeatures": {
+    "backgroundMusic": false,
+    "rsvp": false,
+    "guestNamePersonalization": false,
+    "photoGallery": false,
+    "liveLocation": true
   }
 }
