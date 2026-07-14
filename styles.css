@@ -1,11 +1,17 @@
 
 :root{
-  --ivory:#f8f5ef;
-  --cream:#fffaf2;
-  --gold:#c8a96b;
-  --deep-gold:#a8833f;
-  --charcoal:#222;
-  --glass:rgba(255,255,255,.12);
+
+  --ivory:#F4EEE3;
+
+  --cream:#EAE1D1;
+
+  --gold:#B08A45;
+
+  --deep-gold:#8D6A2F;
+
+  --charcoal:#3A342C;
+
+  --glass:rgba(255,255,255,.15);
 }
 
 *{
@@ -40,27 +46,70 @@ body{
 }
 
 .envelope{
-  width:min(90vw,420px);
-  padding:40px;
+
+  width:min(90vw,520px);
+
+  padding:60px;
+
   text-align:center;
-  border-radius:24px;
-  backdrop-filter:blur(12px);
-  background:rgba(255,255,255,.6);
-  border:1px solid rgba(200,169,107,.4);
-  box-shadow:0 20px 60px rgba(0,0,0,.12);
+
+  border-radius:32px;
+
+  background:
+  linear-gradient(
+  145deg,
+  rgba(255,255,255,.85),
+  rgba(255,255,255,.45));
+
+  backdrop-filter:blur(18px);
+
+  border:2px solid rgba(176,138,69,.35);
+
+  box-shadow:
+  0 30px 80px rgba(0,0,0,.12),
+  0 0 40px rgba(176,138,69,.15);
 }
 
 .envelope h1{
+
   font-family:'Cinzel',serif;
-  font-size:3rem;
-  color:var(--deep-gold);
+
+  font-size:4rem;
+
+  color:#B08A45;
+
+  letter-spacing:4px;
+
+  margin-bottom:15px;
 }
 
 .envelope p{
   margin-top:12px;
   margin-bottom:24px;
 }
+.invitation-greeting{
 
+  font-family:'Cormorant Garamond',serif;
+
+  font-size:1.3rem;
+
+  color:#8D6A2F;
+
+  margin-bottom:20px;
+}
+
+.couple-names{
+
+  font-family:'Cinzel',serif;
+
+  font-size:2rem;
+
+  line-height:1.5;
+
+  color:#3A342C;
+
+  margin-bottom:20px;
+}
 .envelope button{
   border:none;
   cursor:pointer;
